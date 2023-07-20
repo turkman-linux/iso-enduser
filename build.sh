@@ -16,14 +16,4 @@ function build(){
     cd ..
     rm -rf $variant$suffix
 }
-for variant in minimal; do
-    for fw in 0 1 ; do
-        export FIRMWARE=""
-        suffix=""
-        if [[ "$fw" == "1" ]] ; then
-            export FIRMWARE=1
-            suffix="-firmware"
-        fi
-        build $variant $suffix
-    done
-done
+FIRMWARE=1 build minimal
