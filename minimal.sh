@@ -10,4 +10,5 @@ sed -i "s|#agetty_options.*|agetty_options=\" -l /usr/bin/login\"|" /etc/conf.d/
 chmod u+s /bin/su /usr/bin/su
 rc-update add live-config
 rc-update add udhcpc
+rc-update add hostname
 exit 0
