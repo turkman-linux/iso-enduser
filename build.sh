@@ -16,4 +16,4 @@ function build(){
     cd ..
     rm -rf $variant$suffix
 }
-FIRMWARE=1 build minimal
+build minimal
