@@ -2,6 +2,7 @@
 # enable live
 ymp repo --update --ignore-gpg
 ymp it shadow audit --no-emerge
+ymp it e2fsprogs dialog rsync grub --no-emerge
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.initd -O /etc/init.d/live-config
 chmod 755 /etc/init.d/live-config
 echo "tmpfs /tmp tmpfs rw 0 0" > /etc/fstab
