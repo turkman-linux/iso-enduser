@@ -5,8 +5,10 @@ ymp it shadow audit --no-emerge
 ymp it e2fsprogs dialog grub parted dosfstools --no-emerge
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.initd -O /etc/init.d/live-config
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.sh -O /usr/libexec/live-config
+wget https://gitlab.com/turkman/devel/sources/installer/-/raw/master/main.sh -O /sbin/init
 chmod 755 /etc/init.d/live-config
 chmod 755 /usr/libexec/live-config
+chmod 755 /sbin/init
 echo "tmpfs /tmp tmpfs rw 0 0" > /etc/fstab
 ln -s /proc/mounts /etc/mtab
 sed -i "s|#agetty_options.*|agetty_options=\" -l /usr/bin/login\"|" /etc/conf.d/agetty
