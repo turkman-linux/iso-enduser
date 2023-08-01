@@ -3,6 +3,7 @@ set -ex
 mkdir /output -p
 apt update
 apt install git grub-pc-bin grub-efi grub-efi-ia32-bin squashfs-tools mtools xorriso -y
+export FIRMWARE=1
 function build(){
     variant=$1
     suffix=$2
@@ -16,4 +17,4 @@ function build(){
     cd ..
     rm -rf $variant$suffix
 }
-build minimal
+build cinnamon-enduser
