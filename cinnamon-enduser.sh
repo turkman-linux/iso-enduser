@@ -31,8 +31,6 @@ ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas pol
 chmod u+s /usr/libexec/polkit-gnome-authentication-agent-1
 # install wifi and bluetooth
 ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
-# add flathub repo
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # install lightdm
 ymp it lightdm-pardus-greeter lightdm --no-emerge --allow-oem
 # update hicolor icons
