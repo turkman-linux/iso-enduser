@@ -2,7 +2,7 @@
 # enable live
 ymp repo --update --ignore-gpg
 ymp it shadow audit --no-emerge
-ymp it e2fsprogs dialog grub parted dosfstools --no-emerge
+ymp it e2fsprogs dialog grub parted dosfstools nano --no-emerge
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.initd -O /etc/init.d/live-config
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.sh -O /usr/libexec/live-config
 rm -f /sbin/init
