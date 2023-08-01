@@ -32,6 +32,8 @@ ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas ele
 ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
 # update hicolor icons
 gtk-update-icon-cache /usr/share/icons/hicolor/
+# add flathub repo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # enable services
 rc-update add elogind
 rc-update add eudev
