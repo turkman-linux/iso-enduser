@@ -34,6 +34,8 @@ ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
 gtk-update-icon-cache /usr/share/icons/hicolor/
 # add flathub repo
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# install lightdm
+ymp it lightdm-pardus-greeter lightdm --no-emerge --allow-oem
 # enable services
 rc-update add elogind
 rc-update add eudev
@@ -43,6 +45,7 @@ rc-update add live-config
 rc-update add hostname
 rc-update add wpa_supplicant
 rc-update add networkmanager
+rc-update add lightdm
 rc-update add bluetooth
 ymp clean --allow-oem
 exit 0
