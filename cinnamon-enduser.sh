@@ -28,7 +28,7 @@ ymp repo --update --allow-oem --ignore-gpg
 ymp it xinit xorg-server xterm freetype xauth xkbcomp xkeyboard-config @x11.drivers --no-emerge --allow-oem
 ymp it elogind shadow pipewire wireplumber libtool firefox-installer mousepad gpicview fuse fuse2 --no-emerge --allow-oem
 ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas polkit-gnome elementary-appcenter --no-emerge --allow-oem
-chmod u+s /usr/libexec/polkit-gnome-authentication-agent-1
+chmod u+s /usr/libexec/polkit-gnome-authentication-agent-1 /usr/bin/pkexec /usr/lib64/polkit-1/polkit-agent-helper-1
 # install wifi and bluetooth
 ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
 # install lightdm
