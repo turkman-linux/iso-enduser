@@ -30,7 +30,6 @@ ymp it elogind shadow pipewire wireplumber libtool firefox-installer mousepad gp
 ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas polkit-gnome elementary-appcenter gnome-terminal --no-emerge --allow-oem
 # polkit enable
 chmod u+s /usr/bin/pkexec /usr/lib64/polkit-1/polkit-agent-helper-1
-mkdir -p /var/empty
 echo "/bin/bash" > /etc/shells
 echo "/bin/sh" >> /etc/shells
 # install wifi and bluetooth
