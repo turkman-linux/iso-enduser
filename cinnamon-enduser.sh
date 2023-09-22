@@ -33,9 +33,9 @@ chmod u+s /usr/bin/pkexec /usr/lib64/polkit-1/polkit-agent-helper-1
 echo "/bin/bash" > /etc/shells
 echo "/bin/sh" >> /etc/shells
 # install wifi and bluetooth
-ymp --allow-oem it wpa_supplicant networkmanager bluez --no-emerge
+ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
 # install lightdm
-ymp --allow-oem it lightdm-pardus-greeter lightdm --no-emerge
+ymp it lightdm-pardus-greeter lightdm --no-emerge --allow-oem
 # update hicolor icons
 gtk-update-icon-cache /usr/share/icons/hicolor/
 # enable services
