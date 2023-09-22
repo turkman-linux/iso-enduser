@@ -1,8 +1,8 @@
 #!/bin/bash
 # enable live
-ymp repo --update --ignore-gpg
-ymp it shadow audit --no-emerge
-ymp it e2fsprogs dialog grub parted dosfstools nano --no-emerge
+ymp --allow-oem repo --update --ignore-gpg
+ymp --allow-oem it shadow audit --no-emerge
+ymp --allow-oem it e2fsprogs dialog grub parted dosfstools nano --no-emerge
 # insert live-config
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.initd -O /etc/init.d/live-config
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.sh -O /usr/libexec/live-config
@@ -11,6 +11,11 @@ wget https://gitlab.com/turkman/devel/sources/installer/-/raw/master/main.sh -O 
 chmod 755 /etc/init.d/live-config
 chmod 755 /usr/libexec/live-config
 chmod 755 /sbin/init
+# install cinnamon
+ymp repo --update --allow-oem --ignore-gpg
+ymp it xinit xorg-server xterm freetype xauth xkbcomp xkeyboard-config @x11.drivers --no-emerge --allow-oem
+ymp it elogind shadow pipewire wireplumber libtool firefox-installer mousepad gpicview fuse fuse2 --no-emerge --allow-oem
+ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas polkit-gnome gnome-terminal touchegg --no-emerge --allow-oem
 # fstab add tmpfs
 echo "tmpfs /tmp tmpfs rw 0 0" > /etc/fstab
 ln -s /proc/mounts /etc/mtab
@@ -23,19 +28,14 @@ echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 echo "" >> /etc/locale.gen
 locale-gen
 sed -i "s/C/en_US/g" /etc/profile.d/locale.sh
-# install cinnamon
-ymp repo --update --allow-oem --ignore-gpg
-ymp it xinit xorg-server xterm freetype xauth xkbcomp xkeyboard-config @x11.drivers --no-emerge --allow-oem
-ymp it elogind shadow pipewire wireplumber libtool firefox-installer mousepad gpicview fuse fuse2 --no-emerge --allow-oem
-ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas polkit-gnome gnome-terminal touchegg --no-emerge --allow-oem
 # polkit enable
 chmod u+s /usr/bin/pkexec /usr/lib64/polkit-1/polkit-agent-helper-1
 echo "/bin/bash" > /etc/shells
 echo "/bin/sh" >> /etc/shells
 # install wifi and bluetooth
-ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
+ymp --allow-oem it wpa_supplicant networkmanager bluez --no-emerge
 # install lightdm
-ymp it lightdm-pardus-greeter lightdm --no-emerge --allow-oem
+ymp --allow-oem it lightdm-pardus-greeter lightdm --no-emerge
 # update hicolor icons
 gtk-update-icon-cache /usr/share/icons/hicolor/
 # enable services
