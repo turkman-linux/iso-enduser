@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/bash -e
 # enable live
-ymp --allow-oem repo --update --ignore-gpg
-ymp --allow-oem it shadow audit --no-emerge
-ymp --allow-oem it e2fsprogs dialog grub parted dosfstools nano --no-emerge
+ymp repo --update --ignore-gpg --allow-oem
+ymp install shadow audit --no-emerge --allow-oem
+ymp install e2fsprogs dialog grub parted dosfstools nano --no-emerge --allow-oem
 # insert live-config
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.initd -O /etc/init.d/live-config
 wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.sh -O /usr/libexec/live-config
