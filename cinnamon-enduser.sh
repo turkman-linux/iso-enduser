@@ -35,7 +35,7 @@ echo "/bin/sh" >> /etc/shells
 # install wifi and bluetooth
 ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
 # install lightdm
-ymp it lightdm-pardus-greeter lightdm --no-emerge --allow-oem
+ymp it lightdm-gtk-greeter lightdm --no-emerge --allow-oem
 # update hicolor icons
 gtk-update-icon-cache /usr/share/icons/hicolor/
 # enable services
