@@ -12,6 +12,7 @@ function build(){
     if [ -f ../$variant.sh ] ; then
         install ../$variant.sh custom
     fi
+    sed -i "s/console=tty31//g" mkiso.sh
     bash -ex mkiso.sh
     mv turkman.iso /output/turkman-$variant$suffix.iso
     cd ..
