@@ -2,7 +2,7 @@
 set -ex
 mkdir /output -p
 apt update || true
-apt install git grub-pc-bin grub-efi grub-efi-ia32-bin squashfs-tools mtools xorriso -y || true
+apt install git grub-pc-bin grub-efi grub-efi-ia32-bin squashfs-tools mtools xorriso rdfind -y || true
 export FIRMWARE=1
 function build(){
     variant=$1
