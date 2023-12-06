@@ -3,13 +3,8 @@
 ymp repo --update --ignore-gpg --allow-oem
 ymp install shadow audit --no-emerge --allow-oem
 ymp install e2fsprogs dialog grub parted dosfstools --no-emerge --allow-oem
-# insert live-config
-wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.initd -O /etc/init.d/live-config
-wget https://gitlab.com/turkman/devel/sources/live-boot/-/raw/master/live-config.sh -O /usr/libexec/live-config
 rm -f /sbin/init
 wget https://gitlab.com/turkman/devel/sources/installer/-/raw/master/main.sh -O /sbin/init
-chmod 755 /etc/init.d/live-config
-chmod 755 /usr/libexec/live-config
 chmod 755 /sbin/init
 # install cinnamon
 ymp repo --update --allow-oem --ignore-gpg
@@ -43,7 +38,6 @@ rc-update add elogind
 rc-update add eudev
 rc-update add fuse
 rc-update add upowerd
-rc-update add live-config
 rc-update add hostname
 rc-update add wpa_supplicant
 rc-update add networkmanager
