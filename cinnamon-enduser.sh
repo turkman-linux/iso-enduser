@@ -10,7 +10,7 @@ chmod 755 /sbin/init
 ymp repo --update --allow-oem --ignore-gpg
 ymp it xinit xorg-server xterm freetype xauth xkbcomp xkeyboard-config @x11.drivers --no-emerge --allow-oem
 ymp it elogind shadow pipewire wireplumber libtool firefox-installer mousepad gpicview fuse fuse2 --no-emerge --allow-oem
-ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas polkit-gnome gnome-terminal touchegg --no-emerge --allow-oem
+ymp it @cinnamon caribou dejavu adwaita-icon-theme gsettings-desktop-schemas polkit-gnome gnome-terminal libhandy seatd touchegg --no-emerge --allow-oem
 # fstab add tmpfs
 echo "tmpfs /tmp tmpfs rw 0 0" > /etc/fstab
 ln -s /proc/mounts /etc/mtab
@@ -38,6 +38,7 @@ gtk-update-icon-cache /usr/share/icons/hicolor/
 rc-update add elogind
 rc-update add eudev
 rc-update add fuse
+rc-update add seatd
 rc-update add upowerd
 rc-update add hostname
 rc-update add wpa_supplicant
