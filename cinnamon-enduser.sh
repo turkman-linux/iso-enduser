@@ -21,8 +21,9 @@ chmod u+s /bin/su /usr/bin/su
 mkdir -p /lib64/locale
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 echo "" >> /etc/locale.gen
+echo "export LANG=en_US.UTF-8" > /etc/profile.d/locale.sh
+echo "export LC_ALL=en_US.UTF-8" >> /etc/profile.d/locale.sh
 locale-gen
-sed -i "s/C/en_US/g" /etc/profile.d/locale.sh
 # polkit enable
 chmod u+s /usr/bin/pkexec /usr/lib64/polkit-1/polkit-agent-helper-1
 echo "/bin/bash" > /etc/shells
