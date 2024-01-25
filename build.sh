@@ -16,6 +16,7 @@ function build(){
     bash -ex mkiso.sh
     mv turkman.iso /output/turkman-$variant$suffix.iso
     cd ..
+    ymp rbd --no-color 2>/dev/null | tee /output/turkman-$variant$suffix.revdep-rebuild
     rm -rf $variant$suffix
 }
 build cinnamon-enduser
