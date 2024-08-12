@@ -2,7 +2,7 @@
 # enable live
 ymp repo --update --ignore-gpg --allow-oem
 ymp install shadow audit --no-emerge --allow-oem
-ymp install e2fsprogs dialog grub parted dosfstools --no-emerge --allow-oem
+ymp install e2fsprogs dialog grub parted dosfstools rsync --no-emerge --allow-oem
 rm -f /sbin/init
 wget https://gitlab.com/turkman/devel/sources/installer/-/raw/master/main.sh -O /sbin/init
 chmod 755 /sbin/init
@@ -54,4 +54,6 @@ rc-update add bluetooth
 rc-update add polkit
 rc-update add touchegg
 ymp clean --allow-oem
+# revert hardened bindir
+chmod 755 /bin /usr/bin /sbin /usr/sbin
 exit 0
