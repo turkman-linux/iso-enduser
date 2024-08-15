@@ -31,18 +31,15 @@ chmod u+s /usr/bin/pkexec /usr/lib64/polkit-1/polkit-agent-helper-1
 echo "/bin/bash" > /etc/shells
 echo "/bin/sh" >> /etc/shells
 echo "/bin/ash" >> /etc/shells
-# hostname
-echo turkish > /etc/hostname
 # install wifi and bluetooth
 ymp it wpa_supplicant networkmanager bluez --no-emerge --allow-oem
 # install lightdm
-ymp it lightdm-gtk-greeter lightdm --no-emerge --allow-oem
+ymp it lightdm-pardus-greeter lightdm --no-emerge --allow-oem
 # update hicolor icons
 gtk-update-icon-cache /usr/share/icons/hicolor/
 # enable services
 rc-update add elogind
 rc-update add eudev
-rc-update add hostname
 rc-update add fuse
 rc-update add seatd
 rc-update add upowerd
@@ -55,5 +52,6 @@ rc-update add polkit
 rc-update add touchegg
 ymp clean --allow-oem
 # revert hardened bindir
-chmod 755 /bin /usr/bin /sbin /usr/sbin
+mkdir -p /usr/local/bin
+chmod 755 /bin /usr/bin /sbin /usr/sbin /usr/local/bin
 exit 0
