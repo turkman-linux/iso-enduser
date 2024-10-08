@@ -51,13 +51,6 @@ rc-update add bluetooth
 rc-update add polkit
 rc-update add touchegg
 ymp clean --allow-oem
-# remove static libraries
-cat > /etc/sysconf.d/remove-static <<EOF
-#!/bin/sh
-find / -type f -iname '*.a' -exec rm -f {} \;
-EOF
-chmod 755 /etc/sysconf.d/remove-static
-/etc/sysconf.d/remove-static
 # revert hardened bindir
 mkdir -p /usr/local/bin
 chmod 755 /bin /usr/bin /sbin /usr/sbin /usr/local/bin
